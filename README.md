@@ -1,11 +1,11 @@
 # FileToPic
 A CLI tool to convert *almost* any file to an ugly image. 
 
-##Why? 
+## Why? 
 Because why not!
 
 
-##To install dependencies:
+## To install dependencies:
 
 ```bash
 bun install
