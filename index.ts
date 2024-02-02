@@ -13,6 +13,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
+// Creates an image from a buffer and outputs it to outputPath
 async function createImage(buffer: Buffer, outputPath: string) {
     const size = Math.floor(Math.sqrt(Math.floor(buffer.byteLength / CHANNELS)));
     const maxBufferLength = size * size * CHANNELS;
@@ -52,6 +53,7 @@ async function main() {
     }
 
     if (canGenerateImage) {
+        // Get buffer from image
         const getBuffer = await logger(fs.readFile(imagePath), "Reading image");
 
         try {
