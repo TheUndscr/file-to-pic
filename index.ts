@@ -19,9 +19,12 @@ async function createImage(buffer: Buffer, outputPath: string) {
     const maxBufferLength = size * size * CHANNELS;
     buffer = Buffer.from([...buffer].slice(0, maxBufferLength));
 
-    const imageBuffer = await logger(sharp(buffer, { raw: { width: size, height: size, channels: CHANNELS } }).toFormat("jpeg").toBuffer(), "Creating image");
+    const imageBuffer = await logger(
+        sharp(buffer, { raw: { width: size, height: size, channels: CHANNELS } })
+            .toFormat("png")
+            .toBuffer(), "Creating image");
     
-    return fs.writeFile(outputPath + ".jpeg", imageBuffer);
+    return fs.writeFile(outputPath + ".png", imageBuffer);
 }
 
 // Main program
